@@ -1,0 +1,180 @@
+h1 {
+    text-align: center;
+    color: dimgrey;
+    /* Typography */
+}
+
+h2 {
+    text-align: center;
+    /* Typography */
+}
+
+body {
+    width: 800px; 
+    margin: 0 auto;
+    /* Form styling */
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    /* styling the products display */
+}
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    /* General */
+}
+
+.top {
+    background-image: url('./images/phone_globe.jpg');
+    background-repeat: no-repeat;
+    background-size: 45%;
+    background-position: right;
+}
+
+body > div {
+    border: 5px solid black;
+    display: flex;
+    /* block styling */
+}
+
+.HTC {
+    background-color: #ffadad;
+    margin-top: 1em;
+    margin-left: 7%;
+    padding: 5px;
+    border-style: groove;
+    border-width: 5px;
+    border-color: #e56b6f;
+    font-family: 'Montserrat';
+    font-weight: lighter;
+}
+
+.Apple {
+    background-color: #ffd6a5;
+    margin-top: 1em;
+    margin-inline: 7%;
+    padding: 5px;
+    border-style: groove;
+    border-width: 5px;
+    border-color:#f9844a;
+    font-family: 'Montserrat';
+    font-weight: lighter;
+}
+
+.Nokia {
+    background-color: #fdffb6;
+    margin-top: 1em;
+    margin-right: 7%;
+    padding: 5px;
+    border-style: groove;
+    border-width: 5px;
+    border-color: #ffb600;
+    font-family: 'Montserrat';
+    font-weight: lighter;
+}
+
+.Samsung {
+    background-color: #9bf6ff;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    align-items: center;
+    margin-left: 21%;
+    padding: 5px;
+    border-style: groove;
+    border-width: 5px;
+    border-color: #79addc;
+    font-family: 'Montserrat';
+    font-weight: lighter;
+}
+
+.Blackberry {
+    background-color: #caffbf;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    align-items: center;
+    margin-right: 21%;
+    padding: 5px;
+    border-style: groove;
+    border-width: 5px;
+    border-color:  #a1c181;
+    font-family: 'Montserrat';
+    font-weight: lighter;
+}
+
+.circle1 {
+    background: #ffadad;
+    width: 75px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-right: 1em;
+    border-style: groove;
+    border-color: #e56b6f;
+}
+
+.circle2 {
+    background: #ffd6a5;
+    width: 75px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-right: 1em;
+    border-style: groove;
+    border-color: #f9844a;
+}
+
+.circle3 {
+    background: #fdffb6;
+    width: 75px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-right: 1em;
+    border-style: groove;
+    border-color: #ffb600;
+}
+
+.circle4 {
+    background: #9bf6ff;
+    width: 75px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-right: 1em;
+    border-style: groove;
+    border-color: #79addc;
+}
+
+.circle5 {
+    background: #caffbf;
+    width: 75px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    margin-right: 1em;
+    border-style: groove;
+    border-color: #a1c181;
+}
+
+.rotate img
+{
+  animation: rotation .3s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

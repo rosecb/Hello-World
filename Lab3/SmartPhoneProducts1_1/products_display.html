@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./products-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Store</title>
+    <style id="localstyle"></style>
+</head>
+<body>
+
+<div class="top">
+<header><h1 id="grad1">Rose's Used Smartphone Store</h1></header>
+</div>
+
+    <div><main>
+
+    
+    <div class="HTC">
+    <section class="item" id="HTC" 
+    onmouseover="this.className='item rotate'"
+    onclick="this.className='item'"
+    >
+        <h2>HTC</h2> 
+        <p style="text-align: center;">&dollar;40.00</p> 
+        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg"> 
+    </section>
+    </div>
+
+
+    <div class="Apple">
+    <section class="item" id="Apple" 
+    onmouseover="this.className='item rotate'"
+    onclick="this.className='item'"
+    >
+        <h2>Apple</h2> 
+        <p style="text-align: center;">&dollar;75.00</p> 
+        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg"> 
+    </section>
+    </div>
+
+    <div class="Nokia">
+    <section class="item" id="Nokia"
+    onmouseover="this.className='item rotate'"
+    onclick="this.className='item'"
+    >
+        <h2>Nokia</h2> 
+        <p style="text-align: center;">&dollar;35.00</p> 
+        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg"> 
+    </section>
+    </div>
+
+    <div class="Samsung">
+    <section class="item" id="Samsung"
+    onmouseover="this.className='item rotate'"
+    onclick="this.className='item'"
+    >
+        <h2>Samsung</h2> 
+        <p style="text-align: center;">&dollar;45.00</p> 
+        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg"> 
+    </section>
+    </div>
+
+    <div class="Blackberry">
+    <section class="item" id="Blackberry"
+    onmouseover="this.className='item rotate'"
+    onclick="this.className='item'"
+    >
+        <h2>Blackberry</h2> 
+        <p style="text-align: center;">&dollar;10.00</p> 
+        <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg"> 
+    </div>
+
+    <input id='speedSlider' type='range' min=".1" max="5" step=".1" style="direction: rtl;" 
+    onchange="localStyle.innerHTML = '.rotate img {animation-duration: ' + speedSlider.value + 's;}';">
+
+    </main></div>
+
+<div class="bottom">
+<footer><h1>
+    <span style="color:#e56b6f">Your</span>
+    <span style="color:#f9844a">One</span>
+    <span style="color:#ffb600">Stop</span>
+    <span style="color:#79addc">Phone</span>
+    <span style="color:#a1c181">Shop!</span>
+</h1></footer>
+
+<span class="circle1"></span>
+<span class="circle2"></span>
+<span class="circle3"></span>
+<span class="circle4"></span>
+<span class="circle5"></span>
+
+</div>
+
+</body>
+</html>
