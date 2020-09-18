@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5</title>
+</head>
+<body>
+    hello! 
+    <br>The number of months since my last b-day is:</br>
+    <script>
+        document.write(11);
+    </script>
+    
+    <div id="ageDiv"></div>
+    <script>
+
+        age = 19;
+        numberOfKids = 2*age;
+        document.getElementById('ageDiv').innerHTML = "I want " + numberOfKids + " kids!";
+
+
+        var first_name = "Rose";
+        var middle_name = "Cendana";
+        var last_name = "Bautista";
+        var full_name = first_name + " " + middle_name + " " + last_name;
+
+        var formatted_name = full_name + '<br>' + first_name[0] + "." + last_name[0] + '.';
+
+        document.write(formatted_name);
+
+        var fancyFullName = '<br>' + '<b>' + first_name + '</b>' + '<em><br>' + middle_name + '</em><br>' + '<font size=150%>' + last_name + '</font>';
+
+        document.write(fancyFullName);
+
+        var amount = 1000;
+        var tax = .0413*amount;
+        document.write('<br>'+ 'the tax on '+ first_name + '’s bill is $' + tax.toFixed(2));
+
+    </script>
+
+</body>
+</html>
