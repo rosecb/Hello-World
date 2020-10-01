@@ -1,84 +1,56 @@
 <script>
-    var a = prompt("enter a month number please!");
+var a = prompt("enter a month number please!");
 
     var b = "";
 
     var num_days1 = 28;
-    var num_days2 = 29;
-    var num_days3 = 30;
-    var num_days4 = 31;
+    var num_days2 = 30;
+    var num_days3 = 31;
 
     switch(a)
     {
-        case 1: 
-            b = "January";
-            text = "It has " + num_days4 + " in the month! ";
+        case 1: b = "January";
             break;
-        case 2: 
-            b = "February"; 
-            text = "It has " + num_days1 + "or" + num_days2 + " in the month! ";
+        case 2: b = "February"; 
             break;
-        case 3:
-            b = "March";
-            text = "It has " + num_days4 + " in the month! ";
+        case 3: b = "March";
             break;
-        case 4: 
-            b = "April";
-            text = "It has " + num_days3 + " in the month! ";
+        case 4: b = "April";
             break;
-        case 5: 
-            b = "May";
-            text = "It has " + num_days4 + " in the month! ";
+        case 5: b = "May";
             break;
-        case 6: 
-            b = "June";
-            text = "It has " + num_days3 + " in the month! ";
+        case 6: b = "June";
             break;
-        case 7: 
-            b = "July";
-            text = "It has " + num_days4 + " in the month! ";
+        case 7: b = "July";
             break;
         case 8: b = "August";
-            text = "It has " + num_days4 + " in the month! ";
             break;
         case 9: b = "September";
-            text = "It has " + num_days3 + " in the month! ";
             break; 
         case 10: b = "October";
-            text = "It has " + num_days4 + " in the month! ";
             break;
         case 11: b = "November";
-            text = "It has " + num_days3 + " in the month! ";
             break;
         case 12: b = "December";
-            text = "It has " + num_days4 + " in the month! ";
             break;
         default: 
             b = "-1, Not a month!";
     }
  
-if((a==12) || (a==1) || (a==2)) {
+if((a==2)) {
 
-    document.write(" It is " + b + ", which means it's currently Winter! " );
+    document.write(" It has " + num_days1 + " days. " );
 }
 
-if((a==3) || (a==4) || (a==5)) {
+if((a==4) || (a==6) || (a==9) || (a==11)) {
 
-    document.write(" It is " + b + ", which means it's currently Spring! " );
+    document.write(" It has " + num_days2 + " days." );
 }
 
-if((a==6) || (a==7) || (a==8)) {
+if((a==1) || (a==3) || (a==5) || (a==7) || (a==8) || (a==10) || (a==12)) {
 
-    document.write(" It is " + b + ", which means it's currently Summer! " );
+    document.write(" It has " + num_days3 + " days." );
 }
 
-if((a==9) || (a==10) || (a==11)) {
-
-    document.write(" It is " + b + ", which means it's currently Fall/Autumn! " );
-}
-
-
-// need to fix some things first.
 
 </script>
-
