@@ -1,0 +1,92 @@
+<script>
+    num_items = 5;
+
+    //Product 1
+       var product1 = {
+       brand : "HTC",
+       price : 40.00,
+       image : "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg"
+       };
+
+    //Product 2
+       var product2 = {
+       brand : "Apple",
+       price : 75.00,
+       image : "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg"
+       };
+
+    //Product 3
+       var product3 = {
+       brand : "Nokia",
+       price : 35.00,
+       image : "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg"
+       };
+
+    //Product 4
+       var product4 = {
+       brand : "Samsung",
+       price :  45.00,
+       image : "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg"
+       };
+
+    //Product 5
+       var product5 = {
+       brand : "Blackberry",
+       price : 10.00,
+       image : "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg"
+       };
+
+       var products = [product1,product2,product3,product4,product5];
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./products-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Store</title>
+
+</head>
+<body>
+
+<div class="top">
+<header><h1 id="grad1">Rose's Used Smartphone Store</h1></header>
+</div>
+
+    <div><main>
+
+        <script>
+
+            for(let i = 0; i < products.length; i++) {
+                document.write (`
+                <section class="item">
+                <h2>${(products[i].brand)}</h2>
+                <p style="text-align: center;">$${(products[i].price)}</p>
+                <img src="${(products[i].image)}">
+                </section>
+                `);
+            }
+        </script>
+
+    </main></div>
+
+<div class="bottom">
+<footer><h1>
+    <span style="color:dimgray">Your</span>
+    <span style="color:lightskyblue">One</span>
+    <span style="color:dimgray">Stop</span>
+    <span style="color:lightskyblue">Phone</span>
+    <span style="color:dimgray">Shop!</span>
+</h1></footer>
+
+<span class="circle1"></span>
+<span class="circle2"></span>
+<span class="circle3"></span>
+<span class="circle4"></span>
+<span class="circle5"></span>
+
+</div>
+
+</body>
+</html>
