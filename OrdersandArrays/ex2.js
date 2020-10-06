@@ -6,5 +6,4 @@ var student = [
     id = '123456789',
     onProbation = 'true',
 ]
-console.log(push.onProbation='false');
-
+console.log(JSON.stringify(major));
