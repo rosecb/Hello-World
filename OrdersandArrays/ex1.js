@@ -6,4 +6,4 @@ var student = [
     'BUS310',
     'MOM202',
 ]
-console.log(student[2]);
+console.log(student[3]);
