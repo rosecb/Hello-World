@@ -5,52 +5,63 @@ This is a sales invoice from products bought imaginarily. a virtual shopping tri
 
 // Product Data
 
+// quantities for product1, product2, product3, etc ...
+var product_quantities = [null,0,1,1,3,13,0,0];
+document.write(product_quantities[20]);
+
  // Product 1
  var product1 = {
   name: 'Leuchtturm 1917 A5 Medium Dotted Notebook', 
-  "quantity": 0,
   'price': 19.95,
   'SKU#': 1234,
 };
 
  // Product 2
- var item2 = 'Archer and Olive A5 Dot Grid Notebook';
- var quantity2 = 2;
- var price2 = 32.00;
+ var product2 = {
+  name: 'Archer and Olive A5 Dot Grid Notebook', 
+  'price': 32.00,
+ };
 
  // Product 3
- var item3 = 'Tombow Dual Brush Pen Art Markers';
- var quantity3 = 2;
- var price3 = 26.99;
+ var product3 = {
+  name: 'Tombow Dual Brush Pen Art Markers', 
+  'price': 26.99,
+ };
 
  // Product 4
- var item4 = 'Tombow Irojiten Colored Pencil Dictionary Set';
- var quantity4 = 1;
- var price4 = 60.24;
+ var product4 = {
+  name: 'Tombow Irojiten Colored Pencil Dictionary Set', 
+  'price': 60.24,
+ };
+
 
  // Product 5
- var item5 = 'Midori MD Notebook A5 Grid Paper';
- var quantity5 = 2;
- var price5 = 14.95;
+ var product5 = {
+  name: 'Midori MD Notebook A5 Grid Paper', 
+  'price': 14.95,
+ };
 
  // Product 6
- var item6 = 'Hobonichi minamo Book and Cover Set';
- var quantity6 = 1;
- var price6 = 89.42;
+ var product6 = {
+  name: 'Hobonichi minamo Book and Cover Set', 
+  'price': 89.42,
+ };
 
  // Product 7
- var item7 = 'Fjallraven Kanken Sling Crossbody Bag';
- var quantity7 = 1;
- var price7 = 65.00;
+ var product7 = {
+  name: 'Fjallraven Kanken Sling Crossbody Bag', 
+  'price': 65.00,
+ };
+
 
 // Compute Extended Prices
-var extended_price1 = product1.quantity*product1.price;
-var extended_price2 = quantity2*price2;
-var extended_price3 = quantity3*price3;
-var extended_price4 = quantity4*price4;
-var extended_price5 = quantity5*price5;
-var extended_price6 = quantity6*price6;
-var extended_price7 = quantity7*price7;
+var extended_price1 = product_quantities[1]*product1.price;
+var extended_price2 = product_quantities[2]*product2.price;
+var extended_price3 = product_quantities[3]*product3.price;
+var extended_price4 = product_quantities[4]*product4.price;
+var extended_price5 = product_quantities[5]*product5.price;
+var extended_price6 = product_quantities[6]*product6.price;
+var extended_price7 = product_quantities[7]*product7.price;
 
 // Compute sub-total
 var subtotal = extended_price1 + extended_price2 + extended_price3 + 
@@ -60,7 +71,7 @@ extended_price4 + extended_price5 + extended_price6 + extended_price7;
 var tax_rate = 0.0575;
 var tax = tax_rate*subtotal;
 
-// Compute grand totak
+// Compute grand total
 var total = subtotal + tax;
 
 </script>
@@ -88,7 +99,7 @@ var total = subtotal + tax;
           document.write(`
           <tr>
             <td width="43%">${product1.name}</td>
-            <td align="center" width="11%">${product1.quantity}</td>
+            <td align="center" width="11%">${product_quantities[1]}</td>
             <td width="13%">\$${product1.price}</td>
             <td width="54%">\$${extended_price1}</td>
           </tr>
@@ -97,9 +108,9 @@ var total = subtotal + tax;
           // product row 2
           document.write(`
           <tr>
-            <td width="43%">${item2}</td>
-            <td align="center" width="11%">${quantity2}</td>
-            <td width="13%">\$${price2}</td>
+            <td width="43%">${product2.name}</td>
+            <td align="center" width="11%">${product_quantities[2]}</td>
+            <td width="13%">\$${product2.price}</td>
             <td width="54%">\$${extended_price2}</td>
           </tr>
           `);
@@ -107,9 +118,9 @@ var total = subtotal + tax;
           // product row 3
           document.write(`
           <tr>
-            <td width="43%">${item3}</td>
-            <td align="center" width="11%">${quantity3}</td>
-            <td width="13%">\$${price3}</td>
+            <td width="43%">${product3.name}</td>
+            <td align="center" width="11%">${product_quantities[3]}</td>
+            <td width="13%">\$${product3.price}</td>
             <td width="54%">\$${extended_price3}</td>
           </tr>
           `);
@@ -117,9 +128,9 @@ var total = subtotal + tax;
           // product row 4
           document.write(`
           <tr>
-            <td width="43%">${item4}</td>
-            <td align="center" width="11%">${quantity4}</td>
-            <td width="13%">\$${price4}</td>
+            <td width="43%">${product4.name}</td>
+            <td align="center" width="11%">${product_quantities[4]}</td>
+            <td width="13%">\$${product4.price}</td>
             <td width="54%">\$${extended_price4}</td>
           </tr>
           `);
@@ -127,9 +138,9 @@ var total = subtotal + tax;
           // product row 5
           document.write(`
           <tr>
-            <td width="43%">${item5}</td>
-            <td align="center" width="11%">${quantity5}</td>
-            <td width="13%">\$${price5}</td>
+            <td width="43%">${product5.name}</td>
+            <td align="center" width="11%">${product_quantities[5]}</td>
+            <td width="13%">\$${product5.price}</td>
             <td width="54%">\$${extended_price5}</td>
           </tr>
           `);
@@ -137,9 +148,9 @@ var total = subtotal + tax;
           // product row 6
           document.write(`
           <tr>
-            <td width="43%">${item6}</td>
-            <td align="center" width="11%">${quantity6}</td>
-            <td width="13%">\$${price6}</td>
+            <td width="43%">${product6.name}</td>
+            <td align="center" width="11%">${product_quantities[6]}</td>
+            <td width="13%">\$${product6.price}</td>
             <td width="54%">\$${extended_price6}</td>
           </tr>
           `);
@@ -147,9 +158,9 @@ var total = subtotal + tax;
           // product row 7
           document.write(`
           <tr>
-            <td width="43%">${item7}</td>
-            <td align="center" width="11%">${quantity7}</td>
-            <td width="13%">\$${price7}</td>
+            <td width="43%">${product7.name}</td>
+            <td align="center" width="11%">${product_quantities[7]}</td>
+            <td width="13%">\$${product7.price}</td>
             <td width="54%">\$${extended_price7}</td>
           </tr>
           `);
