@@ -15,7 +15,9 @@ name = "Rose";
 age = 20;
 attributes = name + ";" + age + ";" + (age + 0.5) + ";" + (0.5 - age);
 pieces = attributes.split(';');
-for(i in pieces) {
-    console.log (`${pieces[i]} is non neg int ${isNonNegIntString(pieces[i],true).join("***")}`);
+
+function callback(part,i) {
+    console.log (`${part} is non neg int ${isNonNegIntString(part,true).join("***")}`);
 }
 
+pieces.forEach(function (item,i){console.log( (typeof item == 'string' && item.length > 0)?true:false )});
