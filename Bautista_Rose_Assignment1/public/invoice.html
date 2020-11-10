@@ -8,6 +8,7 @@
 </script>
 
 <script>
+// from invoice 4.
 //invoice loads after functions in shop are checked 
 let params = (new URL(document.location)).searchParams; // gets query string
   var quantities = []; // makes variables quantities into an array  
@@ -52,6 +53,7 @@ let params = (new URL(document.location)).searchParams; // gets query string
             <th style="text-align: center;" width="54%">Subtotal</th>
           </tr>
           <script>
+          //all of the following code came from the invoice's, especially Invoice 4.
             subtotal = 0;
             for (i = 0; i < products.length; i++) {
               if (quantities[i] > 0) {

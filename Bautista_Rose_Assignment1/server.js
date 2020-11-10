@@ -5,6 +5,8 @@ File Description: Javascript Server
 */
 //server 
 
+// many of this came from lab 13.
+
 var express = require('express'); // express package
 var app = express(); // starts express
 var myParser = require("body-parser");
@@ -34,9 +36,9 @@ app.post("/process_form", function (request, response) {
         }
     }
    //ok all good generated an invoice
-   qString = querystring.stringify(POST); //Stringing the query together
+   qString = querystring.stringify(POST); //Stringing the query together, from prof port zoom meeting
    if (hasValidQuantities == true && hasPurchases == true) { 
-       response.redirect("./invoice.html?" + qString); // goes to invoice is correct
+       response.redirect("./invoice.html?" + qString); // goes to invoice is correct, from prof port zoom meeting
    }
    else { 
        response.redirect("./errors.html?" + qString); // goes to an error page to inform the person that they have inputted an invalid quantity.
