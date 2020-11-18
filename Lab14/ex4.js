@@ -13,6 +13,7 @@ if(fs.existsSync(user_data_filename)) {
     var data = fs.readFileSync(user_data_filename, 'utf-8');
     users_reg_data = JSON.parse(data);
     // if user exists, get their password
+
 }
 
 app.use(myParser.urlencoded({ extended: true }));
@@ -50,7 +51,7 @@ app.get("/register", function (request, response) {
     // Give a simple register form
     str = `
 <body>
-<form action="" method="POST">
+<form action="process_register" method="POST">
 <input type="text" name="username" size="40" placeholder="enter username" ><br />
 <input type="password" name="password" size="40" placeholder="enter password"><br />
 <input type="password" name="repeat_password" size="40" placeholder="enter password again"><br />
@@ -62,24 +63,25 @@ app.get("/register", function (request, response) {
     response.send(str);
  });
 
- app.post("/register", function (request, response) {
+ app.post("/process_register", function (request, response) {
     // process a simple register form
-    POST = request.body;
-    if (typeof users_reg_data[request.body.username] == 'undefined' && POST['password'] == POST['repeat_password']) {
-        username = POST['username'];
-        users_reg_data[username] = {};
-        users_reg_data[username].username = username;
-        users_reg_data[username].password = POST['password'];
-        users_reg_data[username].email = POST['email'];
+    // validate the reg info
 
-        data = JSON.stringify(users_reg_data);
-        fs.writeFileSync(user_data_filename, data, "utf-8");
-
-        response.redirect('http://localhost:8080/login');
-    } else {
-        response.redirect('http://localhost:8080/register');
-    }
+    // if all data is valid, write to the user_data_filename and send to invoice
+    // add an example new user reg info
+    username = request.body.username;
+    users_reg_data[username] = {};
+    reg_data[username].password = request.body.password;
+    reg_data[username].email = request.body.email;
+    // write updated object to user_data_filename
+    reg_info_str = JSON.stringify(users_reg_data);
+    fs.writeFileSync(user_data_filename, reg_info_str);
+    
  });
 
+app.get("/login", function(request, response) {
+    // give a simple login form
+
+});
 
 app.listen(8080, () => console.log(`listening on port 8080`));
