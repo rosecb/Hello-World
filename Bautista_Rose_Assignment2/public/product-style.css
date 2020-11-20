@@ -1,0 +1,122 @@
+/*
+Author: Rose Bautista
+Date due: 11/19/2020
+File Description: CSS for products display page
+*/
+
+/* general */
+body {
+    font-family: "Inconsolata", monospace;
+    margin: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* top portion showing what the customers see first */
+.home{
+    color: #ecb7bf;
+    font-size: 150px;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    opacity: 100;
+    border-radius: 50%;
+}
+
+img.resize {
+    width: 200px;
+    height: 200px;
+}
+
+.h3 {
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* products section */
+/* the design showing the products data is similar to that of the classic backpack with the general outline of the iconic looking bag */
+.bag {
+    font-family: "Playfair Display", Georgia, Serif;
+}
+
+/* allows the image to be rounded which is similar to the classic backpack design */
+section.item {
+    width: 300px;
+    margin: 5px 5px 5px 5px;
+    border: 1px;
+    border-radius: 27px;
+    background-color: #ECCBD9;
+    padding: 4px;
+}
+
+/* allows the image to expand when hovering over it */
+section.img:hover {
+    position: relative;
+    height: auto;
+    transform: scale(1.5);
+}
+
+/* allows the code for item, price description, and quantity to appear like a little pouch similar to the classic backpack */
+section.pouch {
+    border: 1 px;
+    background-color:#ecb7bf;
+    margin: 5px 5px 5px 5px;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+/* the thank you bottom portion*/
+.thank-you {
+    margin-top: 50px;
+    padding-top: 50px;
+    background-color: #ecb7bf;
+    padding-bottom: 50px;
+  }
+
+.ty {
+    padding-top: 20px;
+}
+
+/* buttons */
+input[type=submit] {
+    padding: 5px; 
+    border: none; 
+    background: none;
+    color: #ecb7bf;
+    background-color: whitesmoke;
+    width: 200px;
+    align-self: center;
+    font-size: 1.5em;
+}
+
+/* nav bar */
+.topnav {
+    overflow: hidden;
+    background-color:#ffe2c9;
+  }
+  
+.topnav a {
+    float: left;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Changes color on hover*/
+.topnav a:hover {
+    background-color: whitesmoke;
+    color: #ecb7bf;
+}

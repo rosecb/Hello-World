@@ -1,0 +1,69 @@
+/*
+Author: Rose Bautista
+Date due: 11/19/2020
+File Description: CSS for invoice page
+*/
+
+body {
+    font-family: "Inconsolata", monospace;
+    margin: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+  }
+
+/* top portion */
+.home{
+    color:#fae199;
+    font-size: 100px;
+}
+
+/* invoice table color and size */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+/* border around */
+td, th {
+    border: 1px solid black;
+    padding: 8px;
+}
+/* color of top of table (item, qty, price) */
+th {
+    background-color: #ffc759;
+}
+
+/* shipping policy */
+.shipping-policy {
+    margin-top: 50px;
+    padding-top: 50px;
+    background-color: #fae199;
+    padding-bottom: 50px;
+  }
+  
+.sp {
+    padding-top: 20px;
+}
+
+/* nav bar */
+.topnav {
+    overflow: hidden;
+    background-color: #ffe2c9;
+  }
+  
+.topnav a {
+    float: left;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Changes color on hover*/
+.topnav a:hover {
+    background-color: whitesmoke;
+    color: #ffc759;
+}
