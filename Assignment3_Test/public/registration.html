@@ -1,0 +1,148 @@
+<!-- Author: Rose Bautista -->
+<!-- Date Due: 11/19/2020 -->
+<!-- File Description: Invoice Page -->
+<!-- this is the blue or teal color theme.-->
+
+<script src="./product_data.js" type="text/javascript"></script>
+<script>
+//Take errors from URL and input them into proper locations
+    let params = (new URL(document.location)).searchParams;
+        if (params.has("user_errors")) {
+            user_errors = params.get("user_errors");
+        }
+        if (params.has("name_errors")) {
+            name_errors = params.get("name_errors");
+        }
+        if (params.has("pass_errors")) {
+            pass_errors = params.get("pass_errors");
+        }
+        if (params.has("confirm_pass_errors")) {
+            confirm_pass_errors = params.get("confirm_pass_errors");
+        }
+        if (params.has("email_errors")) {
+            email_errors = params.get("email_errors");
+        }
+        if (params.has("StickyUser")) {
+            StickyUser = params.get("StickyUser")
+        }
+        if (params.has("StickyName")) {
+            StickyName = params.get("StickyName")
+        }
+        if (params.has("StickyEmail")) {
+            StickyEmail = params.get("StickyEmail")
+        }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESTHETE REGISTRATION.</title>
+    <link rel="stylesheet" href="./registration.css">
+
+</head>
+<body>
+
+    <div class="topnav"> 
+        <a class="active" href="./index.html">Home</a>
+        <a href="./products_display.html">Products</a>
+        <a href="./kanken.html">Kanken</a>
+        <a href="./archerolive.html">Archer&Olive</a>
+        <a href="./leuchtturm.html">Leuchtturm1917</a>
+        <a href="./simplygilded.html">Simply Gilded</a>
+        <a href="./tombow.html">Tombow</a>
+        <a href="./putsonyeon.html">Put So Nyeon</a>
+        <a href="./hobonichi.html">Hobonichi</a>
+    </div>
+
+    <div style="background-image: url('./images/sweden3.jpg');
+    background-size: cover; height:350px; padding-top:100px;">
+    <header><div class="home">AESTHETE REGISTRATION.</div>
+    </header>
+    </div>
+    <br>
+
+    <form id="reg_form" method="POST" action="process_register" name="Registration_Form">
+    <h1>Registration Form</h1>
+    <br>
+    <h3>Welcome to Aesthete!</h3>
+    <br>
+        <label for="Username">Username:</label>
+        <br>
+        <br>
+        <input type="text" name="Username" size="60" value="" id="Username" required title="Needs 4 to 10 Characters & only numbers/letters" class="register_form_field" placeholder="Please Create A Username">
+        <div id=UsernameError class="rg_error">
+        <script>document.write(`${user_errors}`);</script>
+        </div>
+    <br>
+    <br>
+        <label for="Name">First & Last Name:</label>
+    <br>
+    <br>
+        <input type="text" name="Name" size="60" value="" id="Name" class="register_form_field" placeholder="Please Enter Your Name">
+        <div id=NameError class="rg_error"></div>
+        <script>document.write(`${name_errors}`);</script>
+        </div>
+    <br>
+    <br>
+        <label for="Pass">Password:</label>
+    <br>
+    <br>
+        <input type="password" name="Pass" size="60" value="" id="Pass" required title="6 characters minimum" class="register_form_field" placeholder="Please Create A Password">
+        <div id=PassError class="rg_error">
+        <script>document.write(`${pass_errors}`);</script>
+        </div>
+    <br>
+    <br>
+        <label for="ConfirmPass">Confirm Password:</label>
+    <br>
+    <br>
+        <input type="password" name="ConfirmPass" size="60" value="" id="ConfirmPass" required title="6 characters minimum" class="register_form_field" placeholder="Please Enter Password Again">
+        <div id=ConfirmError class="rg_error">
+        <script>document.write(`${confirm_pass_errors}`);</script>
+        </div>
+    <br>
+    <br>
+        <label for="Email">Email:</label>
+    <br>
+    <br>
+        <input type="text" name="Email" size="60" value="" id="Email" class="register_form_field" placeholder="Please Enter Your Email">
+        <div id=EmailError class="rg_error">
+        <script>document.write(`${email_errors}`);</script>
+        </div>
+    <br>
+
+    <br>
+        <td colspan="3" id="submit_reg"><input type="submit" name="submit" value="Register"></td>
+ 
+    </form>
+
+    <br>
+    <h3>We hope you enjoy your stay.</h3>
+
+    <section class="thank-you">
+        <div class="ty">
+            <h3>T H A N K  Y O U</h3>
+            <p>fall 2020 itm 352</p>
+            <p>Disclaimer: this is for assignment purposes only! please note no transactions will go through.</p>
+        </div>
+    </section>
+
+
+</body>
+</html>
+
+<script>
+// adapted from lab 14 with changes for the names!
+//Sets link with quantity data to pass to next page
+reg_form.action = "/register" + document.location.search;
+
+//Makes inputs sticky in case of invalidity
+    document.getElementById("Username").value = StickyUser;
+    document.getElementById("Name").value = StickyName;
+    document.getElementById("Email").value = StickyEmail;
+
+// got code from daphne and prof port 
+    Registration_Form.action += '?' + location.search;
+</script>

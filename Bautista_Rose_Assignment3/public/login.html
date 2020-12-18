@@ -1,0 +1,191 @@
+<!-- Author: Rose Bautista -->
+<!-- Date Due: 12/18/2020 -->
+<!-- File Description: login html-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESTHETE LOGIN.</title>
+    <link rel="stylesheet" type="text/css" href="login.css"/>
+
+    <style>
+        body {font-family: "Times New Roman", Georgia, Serif;}
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 5px;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+        }
+      </style>
+ 
+</head>
+
+<body id="top">
+
+
+    <!-- Header and Nav Bar -->
+    <div class="topnav-centered"> 
+        <div style="background-image: url('./images/sweden2.jpg');
+        background-size: cover; height:500px; padding-top:100px;">
+        <header><div class="home">AESTHETE LOGIN PAGE.</div></header>
+        </div>
+        <br>
+        <div>
+        <a href="./index.html">Home</a>
+        &nbsp;
+        <a href="./login.html">Login</a>
+        &nbsp;
+        <a href="./register.html">Register</a>
+        &nbsp;
+        <a href="./kanken.html">Kanken</a>
+        &nbsp;
+        <a href="./archerandolive.html">Archer and Olive</a>
+        &nbsp;
+        <a href="./leuchtturm.html">Leuchtturm1917</a>
+        &nbsp;
+        <a href="./simplygilded.html">Simply Gilded</a>
+        &nbsp;
+        <a href="./tombow.html">Tombow</a>
+        &nbsp;
+        <a href="./putsonyeon.html">Put So Nyeon</a>
+        &nbsp;
+        <a href="./hobonichi.html">Hobonichi</a>
+        <a href="./cart.html"><script>
+            var cart = sessionStorage.length;
+                        if (cart > 0) {
+                            document.write(`
+                                <p><font color="#555f66"> Shopping Cart </font> <font color="#1d2951">(${cart})</font></p>
+                            `)
+                        }
+                        else {
+                            document.write (`<p> <font color="#555f66"> Shopping Cart </font> </p> `)
+                        };
+        </script></a>
+        </div> 
+    </div>
+
+        <br>
+        <h1>Hi there, Welcome!</h1>
+        <hr style="width:40%">
+        <h3><p>Today's Date and Time: <br> <span id="datetime"></span></p></h3>
+
+    <br>
+    <div id=login>
+        <!-- this is the login form made with help from lab 14-->
+        <form name="login_form" action="javascript:login_user();" method="GET">
+
+            <br>
+            <input type="text" name="username" size="60"  class="login_form_field" placeholder="Please Enter Your Username">
+            <span id="username_message"></span>
+            <br>
+            <input type="password" name="password" size="60"  class="login_form_field" placeholder="Enter Password">
+            <span id="password_message"></span><br /> 
+            <input type="submit" value="Log In" name="submit">
+
+        </form>
+    </div>
+
+    <h3>Are you a new user? Click below to register on our site!</h3>
+    <div>
+        <input type="button"  value="Register" id = "register"
+        onclick="window.location='./registration.html?' + document.location.search;">
+    </div>
+
+    <section class="thank-you">
+        <div class="ty">
+            <h3>T H A N K  Y O U</h3>
+            <p>fall 2020 itm 352</p>
+            <p>Disclaimer: this is for assignment purposes only! please note no transactions will go through.</p>
+        </div>
+    </section>
+
+    <script>
+        //made with help from w3schools.com
+        function setCookie(cname, cvalue, exdays) { //sets cookie
+            var d = new Date(); //today's date
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); //expiration is set to a day after inital login
+            var expires = "expires=" + d.toUTCString(); 
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; 
+        }
+        //mafe with help from from stackoverflow.com
+        function deleteAllCookies() {
+            var cookies = document.cookie.split(";"); 
+
+            for (var i = 0; i < cookies.length; i++) { 
+                var cookie = cookies[i];
+                var eqPos = cookie.indexOf("="); 
+                var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie; 
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT"; 
+            }
+        }
+
+
+        //made with help from stackoverflow.com, allows one to return to previous page after login 
+        function GoBackWithRefresh(event) { 
+            var past = document.referrer;
+            var pastPage = past.split('/').pop(); 
+
+            if (pastPage != 'login.html' && pastPage != 'register.html') { 
+                window.location = past;
+            } else if (pastPage == 'login.html' && pastPage == 'register.html') {
+                window.history.go(-2); 
+            } else {
+                window.location.href = './index.html'; 
+            }
+
+        };
+
+        //Made with help from microservice example 
+        function login_user() { //function to validate on server
+            data = new URLSearchParams(new FormData(login_form)); //variable is set 
+
+            fetch('/check_login', 
+                {
+                    method: 'post',
+                    body: data,
+                    redirect: 'follow'
+                }
+            ).then(function (response) { 
+
+                if (response.ok) { 
+
+                    response.json().then(function (errors) { 
+
+                        if (Object.keys(errors).length == 0) { 
+                            sessionStorage.clear(); //clears session for new users 
+                            response.json({}); 
+                            var theDate = JSON.stringify(Date()); //sets the time of login
+                            setCookie('last_login_time', JSON.parse(theDate), 'username'); //cookies remember login 
+                            
+                            response.redirect(GoBackWithRefresh()); // redirects page
+                        } else {
+
+                            for (errorId in errors) { 
+                                document.getElementById(errorId + '_message').innerHTML = errors[errorId]; 
+                            };
+
+                        };
+                    });
+
+
+                } else {
+                    console.log('Network request for /check_login failed with response ' + response.status + ': ' + response.statusText); 
+                }
+
+            });
+        }
+
+        // i just really wanted to add the date and time to the login in page! seems fitting :)
+        // source: https://www.arclab.com/en/kb/htmlcss/display-date-time-javascript-php-ssi.html
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
+    </script>
+
+</body>
+
+</html>

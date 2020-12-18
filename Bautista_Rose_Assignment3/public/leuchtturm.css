@@ -1,0 +1,94 @@
+/* Author: Rose Bautista 
+Date Due: 12/18/2020 
+File Description: leuchtturm css
+*/
+
+/* general */
+body {
+    margin: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* top portion showing what the customers see first */
+.home{
+    color: #7ad7f0;
+    font-size: 100px;
+    text-shadow: 1px 1px 1px whitesmoke;
+}
+
+img{
+    height: 200px;
+    width: 200px;
+    opacity: 100;
+}
+
+img.resize {
+    width: 100px;
+    height: 100px;
+}
+
+
+.h3 {
+    color: grey;
+    padding-bottom: 5px;
+    text-shadow: 2px 2px 4px whitesmoke;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* nav bar, makes it centered */
+.topnav-centered {
+    overflow: hidden;
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+.topnav a {
+    float: left;
+    color: grey;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Changes color on hover*/
+.topnav-centered a:hover {
+    background-color: white;
+    color:#14b5d0;
+}
+
+/* about section */
+.about {
+    float: center;
+	width:100%;
+	box-sizing:border-box;
+	padding:5px;
+    min-height:100px;
+    background-color: #14b5d0;
+}
+
+/* products section */
+.product {
+    font-family: "Playfair Display", Georgia, Serif;
+}
+
+section.item {
+    width: 300px;
+    margin: 5px 5px 5px 5px;
+    border: 1px;
+    border-radius: 27px;
+    background-color: #7ad7f0;
+    padding: 4px;
+}

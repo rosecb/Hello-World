@@ -1,0 +1,79 @@
+/*
+Author: Rose Bautista
+Date due: 12/18/2020
+File Description: CSS for cart page
+*/
+
+body {
+    font-family: "Inconsolata", monospace;
+    margin: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+  }
+
+/* top portion */
+.home{
+    color:#1d2951;
+    font-size: 60px;
+    text-shadow: 2px 2px 4px whitesmoke;
+}
+
+/* invoice table color and size */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+/* border around */
+td, th {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+/* shipping policy */
+.shipping-policy {
+    margin-top: 30px;
+    padding-top: 30px;
+    background-color: #ffbe7bff;
+    padding-bottom: 30px;
+  }
+  
+.sp {
+    padding-top: 20px;
+}
+
+/* nav bar */
+.topnav-centered {
+    overflow: hidden;
+    background-color: #ffbe7bff;
+    padding: 10px;
+  }
+  
+.topnav a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Changes color on hover*/
+.topnav a:hover {
+    background-color: whitesmoke;
+    color: 1d2951;
+}
+
+/* buttons */
+input[type=submit] {
+    padding: 5px; 
+    border: none; 
+    background: none;
+    color: #1d2951;
+    background-color: whitesmoke;
+    width: 200px;
+    align-self: center;
+    font-size: 1.5em;
+}

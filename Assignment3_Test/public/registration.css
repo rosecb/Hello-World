@@ -1,0 +1,103 @@
+/*
+Author: Rose Bautista
+Date due: 11/19/2020
+File Description: CSS for registration page
+*/
+
+/* wanted to create a teal blue theme that ties into the picture of the ocean and sky */
+
+/* general */
+body {
+    font-family: "Inconsolata", monospace;
+    margin: 0;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* top portion showing what the customers see first */
+.home{
+    color: #14b5d0;
+    font-size: 60px;
+    text-shadow: 2px 2px 4px whitesmoke;
+}
+
+.h3 {
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* registration form */
+.Registration_Form {
+    align-self: flex-start;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.register_form_field {
+    border: none;
+    border-bottom: 1px solid #3a3a3a;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    outline: none;
+    padding: 0px 0px 5px 5px;
+}
+
+/* the thank you bottom portion*/
+.thank-you {
+    margin-top: 50px;
+    padding-top: 50px;
+    background-color:#14b5d0;
+    padding-bottom: 50px;
+  }
+
+.ty {
+    padding-top: 20px;
+}
+
+/* button */
+input[type=submit] {
+    padding: 5px; 
+    border: none; 
+    background: none;
+    color: #14b5d0;
+    background-color: whitesmoke;
+    width: 200px;
+    align-self: center;
+    font-size: 1.5em;
+}
+
+/* error class */
+.rg_error {
+    color: #14b5d0;
+}
+
+/* nav bar */
+.topnav {
+    overflow: hidden;
+    background-color: #ffe2c9;
+  }
+  
+.topnav a {
+    float: left;
+    color: #14b5d0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Changes color on hover*/
+.topnav a:hover {
+    background-color: whitesmoke;
+    color: grey;
+}

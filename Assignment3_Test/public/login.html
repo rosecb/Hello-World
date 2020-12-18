@@ -1,0 +1,92 @@
+<!-- Author: Rose Bautista -->
+<!-- Date Due: 11/19/2020 -->
+<!-- File Description: Invoice Page -->
+<!-- this is the orange color theme.-->
+
+<script src="./product_data.js"></script>
+<script>
+    // adapted from lab 14
+    let params = (new URL(document.location)).searchParams;
+    //Display login error if there is one, finds error in URL string
+        if (params.has("LoginError")) {
+            alert(params.get("LoginError"));
+        }
+    //Takes data from url when page is invalid and puts it back (makes inputs sticky)
+        if (params.has("StickyLoginUser")) {
+            StickyLoginUser = params.get("StickyLoginUser")
+        }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESTHETE LOGIN.</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+
+    <div class="topnav"> 
+        <a class="active" href="./index.html">Home</a>
+        <a href="./products_display.html">Products</a>
+        <a href="./kanken.html">Kanken</a>
+        <a href="./archerolive.html">Archer&Olive</a>
+        <a href="./leuchtturm.html">Leuchtturm1917</a>
+        <a href="./simplygilded.html">Simply Gilded</a>
+        <a href="./tombow.html">Tombow</a>
+        <a href="./putsonyeon.html">Put So Nyeon</a>
+        <a href="./hobonichi.html">Hobonichi</a>
+    </div>
+
+    <div style="background-image: url('./images/sweden2.jpg');
+    background-size: cover; height:350px; padding-top:100px;">
+    <header><div class="home">AESTHETE LOGIN PAGE.</div>
+    </header>
+    </div>
+    <br>
+
+        <form name="login" method="POST" action="process_login">
+            <h1>Hi there, Welcome!</h1>
+            <h2>Before you complete your purchase please login :)</h2>
+            <h3><p>Today's Date and Time: <br> <span id="datetime"></span></p></h3>
+            <br>
+            <input type="text" name="username" size="60"  id="Userbox" class="login_form_field" placeholder="Please Enter Your Username">
+            <br>
+            <input type="password" name="password" size="60" class="login_form_field" placeholder="Please Enter Your Password">
+            <br>
+            <input type="submit" value="login" id="submit" name="login"></div>
+        </form>  
+
+    <h3>Are you a new user? Click below to register on our site!</h3>
+    <div>
+        <input type="button"  value="Register" id = "register"
+        onclick="window.location='./registration.html?' + document.location.search;">
+    </div>
+
+    <section class="thank-you">
+        <div class="ty">
+            <h3>T H A N K  Y O U</h3>
+            <p>fall 2020 itm 352</p>
+            <p>Disclaimer: this is for assignment purposes only! please note no transactions will go through.</p>
+        </div>
+    </section>
+
+</body>
+</html>
+
+<script>
+// i just really wanted to add the date and time to the login in page! seems fitting :)
+// source: https://www.arclab.com/en/kb/htmlcss/display-date-time-javascript-php-ssi.html
+    var dt = new Date();
+    document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
+//Inputs sticky User so customer know what they just put
+    document.getElementById("Userbox").value = StickyLoginUser;
+
+// from daphne in the assignment 2 workshop but reworded so that its suitable for me
+Login_Form.action += '?' + location.search;
+
+</script>
+

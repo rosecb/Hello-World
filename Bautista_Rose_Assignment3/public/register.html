@@ -1,0 +1,212 @@
+<!-- Author: Rose Bautista -->
+<!-- Date Due: 12/18/2020 -->
+<!-- File Description: register html-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESTHETE REGISTRATION.</title>
+    <link rel="stylesheet" type="text/css" href="register.css"/>
+
+    <style>
+        body {font-family: "Times New Roman", Georgia, Serif;}
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 5px;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header and Nav Bar -->
+    <div class="topnav-centered"> 
+        <div style="background-image: url('./images/sweden3.jpg');
+        background-size: cover; height:500px; padding-top:100px;">
+        <header><div class="home">AESTHETE REGISTRATION.</div></header>
+        </div>
+        <br>
+        <div>
+        <a href="./index.html">Home</a>
+        &nbsp;
+        <a href="./login.html">Login</a>
+        &nbsp;
+        <a href="./register.html">Register</a>
+        &nbsp;
+        <a href="./kanken.html">Kanken</a>
+        &nbsp;
+        <a href="./archerandolive.html">Archer and Olive</a>
+        &nbsp;
+        <a href="./leuchtturm.html">Leuchtturm1917</a>
+        &nbsp;
+        <a href="./simplygilded.html">Simply Gilded</a>
+        &nbsp;
+        <a href="./tombow.html">Tombow</a>
+        &nbsp;
+        <a href="./putsonyeon.html">Put So Nyeon</a>
+        &nbsp;
+        <a href="./hobonichi.html">Hobonichi</a>
+        <a href="./cart.html"><script>
+            var cart = sessionStorage.length;
+                        if (cart > 0) {
+                            document.write(`
+                                <p><font color="#555f66"> Shopping Cart </font> <font color="#1d2951">(${cart})</font></p>
+                            `)
+                        }
+                        else {
+                            document.write (`<p> <font color="#555f66"> Shopping Cart </font> </p> `)
+                        };
+        </script></a>
+        </div> 
+    </div>
+
+    <br>
+        <h1>Registration Form</h1>
+        <hr style="width:40%">
+        <h3>Welcome to Aesthete!</h3>
+
+    <!-- Made with help from lab14 exercise 4-->
+    <form name="registration_form" action="javascript:register_user();" method="GET">
+        <br>
+        <label for="Name">First & Last Name::</label>
+        <br>
+        <br>
+        <input type="text" name="name" size="60" class="register_form_field" placeholder="Enter Name">
+        <span id="name_message"></span>
+        <br>
+        <br>
+        <label for="Username">Username:</label>
+        <br>
+        <br>
+        <input type="text" name="username" size="60" class="register_form_field" placeholder="Enter Username">
+        <span id="username_message"></span>
+        <br>
+        <br>
+        <label for="Email">Email:</label>
+        <br>
+        <br>
+        <input type="email" name="email" size="60" class="register_form_field" placeholder="Enter Email">
+        <span id="email_message"></span>
+        <br>
+        <br>
+        <label for="Pass">Password:</label>
+        <br>
+        <br>
+        <input type="password" name="password" size="60" class="register_form_field" placeholder="Enter Password">
+        <span id="password_message"></span>
+        <br>
+        <br>
+        <label for="ConfirmPass">Confirm Password:</label>
+        <br>
+        <br>
+        <input type="password" name="repeat_password" size="60" class="register_form_field" placeholder="Confirm Password">
+        <span id="repeat_password_message"></span>
+        <br> 
+        <input type="submit" value="Register" id="submit" name="register_button">
+
+    </form>
+
+    <br>
+    <h3>We hope you enjoy your stay.</h3>
+
+    <section class="thank-you">
+        <div class="ty">
+            <h3>T H A N K  Y O U</h3>
+            <p>fall 2020 itm 352</p>
+            <p>Disclaimer: this is for assignment purposes only! please note no transactions will go through.</p>
+        </div>
+    </section>
+
+    <script>
+        //made with help from w3schools.com
+        function setCookie(cname, cvalue, exdays) { //sets cookie
+            var d = new Date(); //today's date
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); //expiration is set to a day after inital login
+            var expires = "expires=" + d.toUTCString(); 
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; 
+        }
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        function eraseCookie(name) {
+            document.cookie = name + '=; Max-Age=-99999999;';
+        }
+
+        //made with help from stackoverflow.com, allows one to return to previous page after login 
+        function GoBackWithRefresh(event) { 
+            var past = document.referrer;
+            var pastPage = past.split('/').pop(); 
+
+            if (pastPage != 'login.html' && pastPage != 'register.html') { 
+                window.location = past;
+            } else if (pastPage == 'login.html' && pastPage == 'register.html') {
+                window.history.go(-2); 
+            } else {
+                window.location.href = './index.html'; 
+            }
+
+        };
+
+        //Made with help from microservice example 
+        function register_user() { //validates on the server 
+            data = new URLSearchParams(new FormData(registration_form)); // sets variable 
+
+            fetch('/register_user', //gets response from app post
+                {
+                    method: 'post',
+                    body: data,
+                    redirect: 'follow'
+                }
+            ).then(function (response) { 
+
+                if (response.ok) { 
+
+                    response.json().then(function (errors) { 
+
+                        if (Object.keys(errors).length == 0) { 
+                            sessionStorage.clear(); //resets the session
+                            var theDate = JSON.stringify(Date()); //has time of login
+                            var username = registration_form.username;
+                            var userEmail = registration_form.email;
+                            var user_name = registration_form.name;
+                            setCookie('last_login_time', JSON.parse(theDate),'username', username, 'email', userEmail, 'name', user_name); 
+                            response.redirect(GoBackWithRefresh()); 
+                        } else {
+
+                            for (errorId in errors) { 
+                                document.getElementById(errorId + '_message').innerHTML = errors[errorId]; 
+                            }
+
+                        }
+
+                    });
+
+                }
+
+                else {
+                    console.log('Network request for /register_user failed with response ' + response.status + ': ' + response.statusText); 
+                }
+
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

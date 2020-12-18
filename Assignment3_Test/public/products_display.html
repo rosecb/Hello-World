@@ -1,0 +1,67 @@
+<!-- Author: Rose Bautista -->
+<!-- Date Due: 11/19/2020 -->
+<!-- File Description: Products Display Page -->
+
+<script src="./product_data.js" type="text/javascript">
+// all images but the snow picture are not mine. 
+// this is the pink color theme.
+// Disclaimer: this is for assignment purposes only! please note no transactions will go through.
+</script>  
+    
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESTHETE PRODUCTS.</title>
+    <link rel="stylesheet" href="./product-style.css">
+</head>
+
+<body>
+
+    <div class="topnav"> 
+        <a class="active" href="./index.html">Home</a>
+        <a href="./login.html">Log In</a>
+        <a href="./kanken.html">Kanken</a>
+        <a href="./archerandolive.html">Archer&Olive</a>
+        <a href="./leuchtturm.html">Leuchtturm1917</a>
+        <a href="./simplygilded.html">Simply Gilded</a>
+        <a href="./tombow.html">Tombow</a>
+        <a href="./putsonyeon.html">Put So Nyeon</a>
+        <a href="./hobonichi.html">Hobonichi</a>
+    
+    </div>
+
+    <div style="background-image: url('./images/germany2.jpg');
+    background-size: cover; height:350px; padding-top:100px;">
+    <header><div class="home">Our Products.</div>
+    </header>
+    </div>
+    <br>
+
+    <h2>Choose your items! There's bound to be one suitable for your lifestyle!</h2>
+
+
+    
+<section class="thank-you">
+    <div class="ty">
+        <h3>T H A N K  Y O U</h3>
+        <p>fall 2020 itm 352</p>
+        <p>Disclaimer: this is for assignment purposes only! please note no transactions will go through.</p>
+    </div>
+</section>
+
+</body>
+</html>
+
+<script>
+//Input values from query string back into their designated textboxes if form data is not valid
+    for (i = 0; i < products.length; i++) {
+        product_display[products[i].item].value = sticky_quantity[i];
+        checkQuantityTextbox(product_display[products[i].item]);
+    }
+
+</script>
+

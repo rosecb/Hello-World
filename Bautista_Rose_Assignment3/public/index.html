@@ -1,0 +1,197 @@
+<!-- Author: Rose Bautista -->
+<!-- Date Due: 12/18/2020 -->
+<!-- File Description: index html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AESTHETE.</title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+
+    <style>
+        body {font-family: "Times New Roman", Georgia, Serif;}
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display";
+            letter-spacing: 5px;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+        }
+      </style>
+
+<script> 
+    //made with help from w3schools.com 
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie); //decodes cookie
+        var ca = decodedCookie.split(';'); 
+        for (var i = 0; i < ca.length; i++) { 
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    };
+
+    //ensures postive intengers 
+    function isNonNegInt(q, return_errors = false) { 
+        errors = []; // assume no errors at first
+        if (q == "") q = 0; //blank inputs are 0
+        if (Number(q) != q) errors.push('<font color="red">Not a number</font>'); //sees if string is a number
+        if (q < 0) errors.push('<font color="red">Negative number</font>'); //ensures it is non-negative
+        if (parseInt(q) != q) errors.push('<font color="red">Not a full product</font>'); //sees if it is a full number
+        return return_errors ? errors : (errors.length == 0); //gives errors if there are some 
+    }
+
+    function checkQuantityTextbox(theTextbox) { //gives error message with invalid input 
+        errs = isNonNegInt(theTextbox.value, true); //sets variable 'errs'
+        document.getElementById(theTextbox.name + '_message').innerHTML = errs.join(", "); //setting it to error message 
+    }
+
+    window.onload = function () { //page is loaded before function 
+        let params = (new URL(document.location)).searchParams; //retrieves the query string for the data 
+
+        if (params.has('purchase_submit_button')) { //checks that quantites are valid
+            errors = false; //assumes no errors 
+            total_qty = 0; //must check if something was selected (>0)
+
+            for (i = 0; i < productSelection[product].length; i++) { //this is for every product
+
+                if (params.has(`quantity_textbox${i}`)) { // check textbox for numbers 
+                    qty = params.get(`quantity_textbox${i}`); //get the value for quantity_textbox and makes it sticky 
+                    quantityForm[`quantity_textbox${i}`].value = qty; //setting to variable qty 
+                    total_qty += qty; // adds the most recent textboxes 
+
+                    if (!isNonNegInt(qty)) { //if it was not valid 
+                        errors = true; 
+                        checkQuantityTextbox(quantityForm[`quantity_textbox${i}`]); //returns error message 
+                    }
+
+                }
+
+            }
+
+            if (errors) { //responds or redirects to invoice 
+                alert("Please enter valid product amounts");
+            } else if (total_qty == 0) { //must select some products 
+                alert("Please select a product before submitting your purchase order");
+            }
+
+        }
+
+    }
+
+</script>
+</head>
+<body>
+    <!-- all images are not mines-->
+    <!-- Header and Nav Bar -->
+    <div class="topnav-centered"> 
+    <div style="background-image: url('./images/sweden6.jpg');
+    background-size: cover; height:500px; padding-top:100px;">
+    <header><div class="home">Aesthete.</div></header>
+    </div>
+    <br>
+    <a href="./login.html">Login</a>
+    &nbsp;
+    <a href="./register.html">Register</a>
+    &nbsp;
+    <a href="./kanken.html">Kanken</a>
+    &nbsp;
+    <a href="./archerandolive.html">Archer and Olive</a>
+    &nbsp;
+    <a href="./leuchtturm.html">Leuchtturm1917</a>
+    &nbsp;
+    <a href="./simplygilded.html">Simply Gilded</a>
+    &nbsp;
+    <a href="./tombow.html">Tombow</a>
+    &nbsp;
+    <a href="./putsonyeon.html">Put So Nyeon</a>
+    &nbsp;
+    <a href="./hobonichi.html">Hobonichi</a>
+    &nbsp;
+    <a href="./cart.html"><script>
+        var cart = sessionStorage.length;
+                    if (cart > 0) {
+                        document.write(`
+                            <p><font color="#555f66"> Shopping Cart </font> <font color="#1d2951">(${cart})</font></p>
+                        `)
+                    }
+                    else {
+                        document.write (`<p> <font color="#555f66"> Shopping Cart </font> </p> `)
+                    };
+    </script></a>
+    </div>
+
+
+    <!-- About Section -->
+    <div class="about" id="about" >
+        <br>
+        <h1 style="color: grey";>₊˚ ༘ A B O U T ･ﾟˊˎ</h1>
+        <hr style="width:40%">
+        <h3>Aesthete. noun. <br> a person who has or affects to have a special appreciation of art and beauty. to have refined sensitivity toward the beauties of art or nature and affects great love of art, music, poetry, etc., and indifference to practical matters.</h3>
+        <h3>thus we are artists, designers, writers, journalers, and travelers.</h3>
+        <h3>full of all the fan favorites within the art, journaling, writing and planning communities.</h3>
+        <h3>Disclaimer: please note, this is just a website for an assignment and just for fun.</h3>
+        <h3>T H A N K  Y O U</h3>
+        <div id="wrapper">
+            <section id="cta" class="main special">
+                <!-- Section to review account information -->
+
+                <h1 style="color: grey";>₊˚ ༘ Account Information ･ﾟˊˎ</h1>
+                <hr style="width:40%">
+                <script>
+                    var theUser = getCookie('name'); 
+                    var infoUsername = getCookie('username'); 
+                    var email = getCookie('email'); 
+                    var lastVisit = getCookie('last_login_time'); 
+                    if (infoUsername != '') { 
+                        document.write(`
+                            <p>Logged in as: <font color="#1d2951">${infoUsername}</font>.   Not you? <a href= "login.html" style=style="color": #1d2951> Log in </a> or <a href= "register.html" style=style="color": #629DD1>register an account</a> <p> 
+                            <p>You last visited us on: <font color="#1d2951">${lastVisit}</font></p>
+                        `)
+                    } else {
+                        document.write(`
+                            <p>You are currently not logged in. Please log in <a href="login.html" style="color": #1d2951; >here</a></p>
+                        `)
+                    };
+                    var cart = sessionStorage.length;
+                                    if (cart > 0) {
+                                        console.log(
+                                            cart
+                                        )
+                                    };
+                </script>
+
+            </section>
+
+    </div>
+
+    </div>
+
+    <!-- Brands Offered Section -->
+    <div class="brands" id="brands" >
+        <br>
+        <h1 style="color: whitesmoke";>₊˚ ༘ B R A N D S ･ﾟˊˎ</h1>
+        <hr style="width:40%">
+        <h2 style="color: grey";>Our Current Brands List.</h2>
+        <h3 style="color: #9e7bb5";>Fjällräven Kånken.</h3>
+        <h3 style="color: #5dbb63";>Archer and Olive.</h3>
+        <h3 style="color: #14b5d0";>Leuchtturm 1917.</h3>
+        <h3 style="color:#ecb7bf";>Simply Gilded.</h3>
+        <h3 style="color: #ffc759";>Tombow.</h3>
+        <h3 style="color: #ff7f4f";>Put So Nyeon.</h3>
+        <h3 style="color:#fa8072";>Hobonichi.</h3>
+        <h3 style="color: whitesmoke";>More to come soon!</h3>
+        <br>
+        <h3 style="color: grey";>note, i am not actually affiliated with any of the brands.</h3>
+    </div>   
+
+</body>
+</html>
